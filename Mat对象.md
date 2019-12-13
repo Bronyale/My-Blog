@@ -42,3 +42,27 @@ if(src.empty()){
 	src.create(Size size, VC_8UC3);
 }
 ~~~
+## Mat对象的结构    
+~~~
+class CV_EXPORTS Mat { 
+    public: 
+    int flags;  //标志位 
+    int dims;  //维度>=2 
+    int rows,cols;  
+	//行和列或者(-1,-1),此时数组超过了2维 
+    uchar * data;  //矩阵数据块的指针 
+    int *refcount;  //指针引用计数器 
+} 
+~~~
+&nbsp;  因此Mat对象可直接做如下操作：   
+> Mat image1(10, 8, CV_8UC1, Scalar(5)); 
+    image1.rows  //行数 
+    image1.cols  //列数 
+    image1.channels ()  //通道,方法    
+   image1.rowRange(1, 3)  //取1，2两行 
+    image1.colRange(1, 4)  //取1，2，3列 
+	image1.deepth  //深度   
+	Mat image2 = Mat::zeros(rows, cols, CV_8UC3)     
+	//全零矩阵    
+    Mat image3 = Mat::ones(rows, cols, CV_8UC3);   
+	//全一矩阵
