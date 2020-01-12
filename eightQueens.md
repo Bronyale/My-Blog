@@ -1,5 +1,5 @@
 # Eight Queens Problem
-##### algorithm: dichotomy + greedy + dp
+##### algorithm: trace_back
 ##### author：bronyale
 ##### date：1月12日   
 ## Problem:
